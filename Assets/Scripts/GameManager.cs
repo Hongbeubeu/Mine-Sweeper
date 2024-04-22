@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
                            new Vector2Int(1, -1),
                            new Vector2Int(1, 0),
                            new Vector2Int(1, 1)  };
-    GridGenerator gridGenerator;
+    GridGenerator gridGenerator; // thêm SerializeField để có thể kéo được reference từ hierachy
 
     public List<List<bool>> mineMatrix = new List<List<bool>>();
     public List<List<Tile>> tileMatrix = new List<List<Tile>>();
@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        gridGenerator = FindObjectOfType<GridGenerator>();
+        gridGenerator = FindObjectOfType<GridGenerator>(); // nên kéo reference bằng serialize field
         gridGenerator.CreateTiles();
         maxFlag = gridGenerator.numberOfMine;
     }
